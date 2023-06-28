@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+
+{%block content%}
+
+{% for pdf_document in lesson_data %}
+        <div align = center>
+            <h1 align = center>{{pdf_document.title}}:</h1>
+            <li>
+                level : {{pdf_document.level}}
+            </li>
+            <li>
+                <a href="{% url 'pdf_download' pdf_document.id %}">download PDF  </a>
+            </li>
+        </div>
+        {% empty %}
+            <li>No PDF files available.</li>
+
+        {% endfor %}
+    {%endblock content%}

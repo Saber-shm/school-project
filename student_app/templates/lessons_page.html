@@ -1,0 +1,21 @@
+{%extends "base.html"%}
+<br>
+{%block content%}
+
+<br>
+<br>
+
+{% for pdf_document in d %}
+        <div align = center>
+            <li>
+                <a href="{% url 'lesson_page'  %}">{{ pdf_document.title }}</a>
+                <a href="{% url 'lesson_page'  %}">frfrfrf</a>
+            </li>
+        </div>
+        {% empty %}
+            <li>No PDF files available.</li>
+
+        {% endfor %}
+    
+
+{%endblock content%}

@@ -1,0 +1,37 @@
+{%extends 'base_teacher.html'%}
+
+{%block content%}
+<h1 align = center>    Choose classroom to add grade:
+</h1>
+<hr>
+{%for info in teacher_info.classroom.all%}
+
+<a href="{%url 'add_grade_year' info.id %}">
+
+    <div class="container d-flex justify-content-center">
+    
+      <ul class="list-group mt-5 text-white">
+        <li class="list-group-item d-flex justify-content-between align-content-center">
+          
+            <div class="d-flex flex-row">
+                <div class="ml-2">
+                    <h6 class="mb-0">{{info}} </h6>
+                   
+                </div>
+            </div>
+    
+        </li>
+    
+    
+    
+        
+        
+      </ul>
+      
+      </div>
+    </a>
+    
+{%endfor%}
+
+
+{%endblock content%}

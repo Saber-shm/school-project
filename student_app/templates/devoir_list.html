@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<h1 align = center>Devoirs:</h1>
+<hr>
+{%for devoir in devoirs%}
+<div align = center> <a href="{%url 'devoir_view' devoir.id%}"><button> {{devoir}}
+</button></a> </div>
+<br>
+{%endfor%}
+
+{%endblock content%}

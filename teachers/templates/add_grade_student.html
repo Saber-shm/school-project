@@ -1,0 +1,35 @@
+{% extends 'base_teacher.html' %}
+
+
+{% block content %}
+<h1 align = center> Choose student:</h1>
+{%for student in students%}
+
+
+<a href="{%url 'add_grade_in' class_grade student.id %}">
+
+    <div class="container d-flex justify-content-center">
+    
+      <ul class="list-group mt-5 text-white">
+        <li class="list-group-item d-flex justify-content-between align-content-center">
+          
+            <div class="d-flex flex-row">
+                <div class="ml-2">
+                    <h6 class="mb-0">{{student}}</h6>
+                   
+                </div>
+            </div>
+    
+        </li>
+    
+    
+    
+        
+        
+      </ul>
+      
+      </div>
+    </a>
+
+{%endfor%}
+{%endblock content%}

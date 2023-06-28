@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+
+{%block content%}
+<div align = center>
+    <h1>{{devoir.title}}:</h1>
+<br>
+    <strong>descriptions:</strong><p>{{devoir.descriptions}}</p>
+<br>
+<strong>Deadline:</strong>{{devoir.deadline}}
+
+<br>
+<strong>teacher:
+</strong>{{devoir.teacher.first_name}} {{devoir.teacher.last_name}} <br>
+<strong>module:</strong>{{devoir.module}}
+</div>
+
+{%endblock content%}

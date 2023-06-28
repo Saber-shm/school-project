@@ -1,0 +1,25 @@
+{%extends 'base_teacher.html'%}
+
+
+{%block content%}
+
+<h1 align = center>Seach for student by First name and Last name:</h1>
+
+<div align = center>
+   <form action="" method="POST">
+    {%csrf_token %}
+    <label for="text">First name:</label><br>    
+    <input type="text" name="First name" id=""><br>
+    <label for="text">Last name</label><br>
+    <input type="text" name="Last name" id="">
+    <br>
+    <br>
+    <input type="submit" name="" id="">
+   </form>
+</div>
+<hr>
+<div>
+
+</div>
+
+{%endblock content%}

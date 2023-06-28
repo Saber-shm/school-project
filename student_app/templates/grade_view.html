@@ -1,0 +1,49 @@
+{%extends 'base.html'%} {%block content%}
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    background-color: #f2f2f2;
+  }
+</style>
+
+<h1 align="center">
+  Grades for sudents {{request.user}} year {{year}} semestre {{semestre}}:
+</h1>
+<br />
+<br />
+
+<table>
+  <thead>
+    <tr>
+      <th>Module:</th>
+
+      <th>Exam 1:</th>
+      <th>Exam 2:</th>
+      <th>Exam 3:</th>
+      <th>Exam 4:</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for k,item in dic_grade.items %}
+    <tr>
+      <th>{{k}}</th>
+      {%for i in item.values%}
+      <td>{{i}}</td>
+      {%endfor%}
+    </tr>
+    {%endfor%}
+  </tbody>
+
+  {%endblock content%}
+</table>

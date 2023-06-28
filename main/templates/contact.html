@@ -1,0 +1,20 @@
+<h1 align = center> Contacter la direction par ici :</h1>
+
+<br>
+<br>
+<br>
+{% if submitted %}
+votre message est envoyer
+<br>
+<br>
+<a href="/">revenir sur page d'accueil</a> 
+
+{% else %}
+
+<form action="" method = "POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit">
+</form>
+
+{% endif %}

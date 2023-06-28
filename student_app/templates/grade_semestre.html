@@ -1,0 +1,16 @@
+{%extends 'base.html'%} {%block content%}
+
+<h1 align="center">Choose Semestre:</h1>
+<hr />
+
+{%for i in semestres%}
+
+<ul align="center">
+  <li>
+    <a href="{% url 'grade_views' year i.id %}"
+      ><button>Semestre {{i}}</button></a
+    >
+  </li>
+</ul>
+
+{%endfor%} {%endblock content%}

@@ -1,0 +1,49 @@
+{%extends 'base_teacher.html'%} {%block content%}
+
+<div class="main" align = center>
+  {% for messag in message %}
+  <h2 align="center">{{ messag }}</h2>
+  {% endfor %}
+  <h2>add grade:</h2>
+  <div class="card">
+      <div class="card-body">
+        <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %} {{form.as_p}}
+          <button type="submit" class="btn btn-primary" >Submit</button>
+        </form>
+      </div>
+  </div>
+<style>
+  .main {
+    margin-top: 2%;
+    margin-left: 29%;
+    font-size: 28px;
+    padding: 0 10px;
+    width: 58%;
+}
+.main h2 {
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.main .card {
+    background-color: #fff;
+    border-radius: 18px;
+    box-shadow: 1px 1px 8px 0 grey;
+    height: auto;
+    margin-bottom: 20px;
+    padding: 20px 0 20px 50px;
+}
+
+.main .card table {
+    border: none;
+    font-size: 16px;
+    height: 270px;
+    width: 80%;
+}
+</style>
+{%endblock content%}
+
+
