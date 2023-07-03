@@ -14,5 +14,6 @@ urlpatterns = [
     path("myprofile/",views.myprofile_page,name = "myprofile_page"),
     path("devoir_list/",views.devoir_list,name ="devoir_list" ),
     path("devoir_view/<devoir_id>",views.devoir_view,name = "devoir_view"),
+    path("timetable/",views.timetable_view,name = "timetable"),
 
 ]

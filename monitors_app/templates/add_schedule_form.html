@@ -1,0 +1,22 @@
+{%extends 'base_monitor.html'%}
+
+{%block content%}
+<h1 align = center> Add a day:</h1>
+<hr>
+{% for messag in message %}
+<h2 align="center">{{ messag }}</h2>
+{% endfor %}
+
+<div align = center>
+    <form action="" method="POST">
+        {%csrf_token%}
+        {{form.as_p}}
+        
+    <br>
+    <input type="submit">
+    </form>
+</div>
+
+
+
+{%endblock content%}

@@ -21,7 +21,12 @@ def login_user(request):
                      user_info = Teacher.objects.get(user=request.user)
                      return redirect("teacher_home_page")
                 except:
-                     return redirect("login")
+                    try:
+                        user_info = Monitor.objects.get(user = request.user)
+                        return redirect('monitors_home_page')
+                    except:
+                        return redirect("logins")
+
         else:
             messages.success(request,'problem try again')
             return redirect("logins")
@@ -32,8 +37,10 @@ def success(request):
     return redirect("home")
 
 def logout_user(request):
+    print(request.user)
     logout(request)
-    return redirect("home")
+    
+    return redirect("logins")
 def register_user(request):
 	if request.method  =="POST":
 		form = UserCreationForm(request.POST)

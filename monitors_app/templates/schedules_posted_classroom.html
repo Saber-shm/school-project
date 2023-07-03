@@ -1,0 +1,22 @@
+{%extends "base_monitor.html"%}
+
+{%block content%}
+<h1 align = center>Schedules posted:</h1>
+<hr>
+{%for i in schedules%}
+
+    <div align = center>
+
+        <a href="{% url 'schedules_posted_days' i.id%}">
+            <button>
+                {{i}}
+            </button>
+        </a>
+
+    </div>
+
+    <br>
+
+{%endfor%}
+
+{%endblock content%}

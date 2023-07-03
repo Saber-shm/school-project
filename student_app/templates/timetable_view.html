@@ -1,0 +1,59 @@
+{% extends 'base.html'%}
+
+
+{%block content%}
+<style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    
+    th, td {
+      padding: 8px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    </style>
+
+<h1 align = center>Calendrier de la class {{classroom}}:</h1>
+<hr>
+<table>
+    <thead>
+      <tr>
+        <th>Jour</th>
+        <th>Période 1</th>
+        <th>Période 2</th>
+        <th>Période 3</th>
+        <th>Pause déjeuner</th>
+        <th>Période 4</th>
+        <th>Période 5</th>
+        <th>Période 6</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for timetable in data %}
+      <tr>
+        <td>{{ timetable.day }}</td>
+        <td>{{ timetable.p1 }}</td>
+        <td>{{ timetable.p2 }}</td>
+        <td>{{ timetable.p3 }}</td>
+        <td>{{ timetable.lunch_break }}</td>
+        <td>{{ timetable.p4 }}</td>
+        <td>{{ timetable.p5 }}</td>
+        <td>{{ timetable.p6 }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+{%endblock content%}

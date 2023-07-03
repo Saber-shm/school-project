@@ -115,3 +115,10 @@ def devoir_view(request,devoir_id):
         student_info = Student.objects.get(user = request.user)
         devoir = Homework.objects.get(pk = devoir_id)
         return render(request,'devoir_view.html',{"devoir":devoir})
+    
+def timetable_view(request):
+    if request.user.is_authenticated:
+        student_info = Student.objects.get(user = request.user)
+        classroom = student_info.classroom
+        timetable_data = Timetable.objects.filter(classroom = classroom,year_study = student_info.year_study)
+        return render(request,'timetable_view.html',{"data":timetable_data,"classroom":classroom})

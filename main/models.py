@@ -56,7 +56,7 @@ class Classroom_grade(models.Model):
         return str(self.classroom) + ' ' + str(self.year_study) + " Semestre " + str(self.semestre)
 
 class Student(models.Model):    
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     level =models.ForeignKey(Level,on_delete=models.SET_NULL,null = True,blank = True)
     classroom = models.ForeignKey(Classroom,on_delete=models.SET_NULL,null = True,blank = True)
     first_name = models.CharField(max_length=120,blank = True)
@@ -78,7 +78,7 @@ class Student(models.Model):
 
 class Teacher(models.Model):
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     classroom =models.ManyToManyField(Classroom)
     module = models.ForeignKey(Module,on_delete=models.SET_NULL,null = True,blank = True)
     first_name = models.CharField(max_length=120)
@@ -88,6 +88,20 @@ class Teacher(models.Model):
     year_study = models.ForeignKey(Year_study,on_delete=models.CASCADE,null = True,blank = True)
     def __str__(self):
         return str(self.user.username)
+
+class Monitor(models.Model):
+    user = models.ForeignKey(User,models.CASCADE)
+    first_name = models.CharField(max_length=120)
+    last_name = models.CharField(max_length=120)
+    phone_number = models.CharField(max_length=120)
+    email = models.EmailField()
+    year_study = models.ForeignKey(Year_study,on_delete=models.CASCADE,null = True,blank = True)
+
+    def __str__(self):
+        return self.user.username
+
+
+
 
 class Lesson(models.Model):
     title = models.CharField(max_length=200)
@@ -144,4 +158,29 @@ class Attendence_report(models.Model):
     def __str__(self):
         return str(self.classroom) + ' '+  str(self.date)
 
+class Timetable(models.Model):
+    days = [
+    ("lundi", "Lundi"),
+    ("mardi", "Mardi"),
+    ("mercredi", "Mercredi"),
+    ("jeudi", "Jeudi"),
+    ("vendredi", "Vendredi"),
+    ("samedi", "Samedi"),
+    ("dimanche", "Dimanche")
+    ]
+    classroom = models.ForeignKey(Classroom,on_delete=models.CASCADE)
+    year_study = models.ForeignKey(Year_study,on_delete=models.CASCADE)
+    p1 = models.ForeignKey(Module, on_delete=models.CASCADE, related_name='timetable_p1',blank=True,null=True)
+    p2 = models.ForeignKey(Module, on_delete=models.CASCADE, related_name='timetable_p2',blank=True,null=True)
+    p3 = models.ForeignKey(Module, on_delete=models.CASCADE, related_name='timetable_p3',blank=True,null=True)
+    p4 = models.ForeignKey(Module, on_delete=models.CASCADE, related_name='timetable_p4',blank=True,null=True)
+    p5 = models.ForeignKey(Module, on_delete=models.CASCADE, related_name='timetable_p5',blank=True,null=True)
+    p6 = models.ForeignKey(Module, on_delete=models.CASCADE, related_name='timetable_p6',blank=True,null=True)
+    
+    lunch_break = models.CharField(max_length=120)
 
+    posted_by = models.ForeignKey(User,on_delete= models.SET_NULL,null = True ,blank = True)
+    day = models.CharField(max_length=120,choices=days)
+
+    def __str__(self):
+        return str(self.classroom) + " " + str(self.year_study)

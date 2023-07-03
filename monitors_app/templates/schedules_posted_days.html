@@ -1,0 +1,22 @@
+{%extends "base_monitor.html"%}
+
+{%block content%}
+<h1 align = center>Schedules posted:</h1>
+<hr>
+{%for i in data%}
+
+    <div align = center>
+
+        <a href="">
+            <button>
+                {{i.day}}
+            </button>
+        </a>
+
+    </div>
+
+    <br>
+
+{%endfor%}
+
+{%endblock content%}

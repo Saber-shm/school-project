@@ -14,7 +14,7 @@ def home_page(request):
                     user_info = Teacher.objects.get(user=request.user)
                     return redirect("teacher_home_page")
             except:
-                    return redirect("login")
+                    return redirect("logins")
     return render(request, "home.html")
 
 def contact_form(request):

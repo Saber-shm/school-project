@@ -74,12 +74,24 @@ def Student_info(request,student):
 def search_for_student_form(request,classroom):
     if request.user.is_authenticated:
         teacher_info = Teacher.objects.get(user = request.user)
-
+        if request.method == "POST":
+            first_name = request.POST.get("first_name")
+            last_name = request.POST.get("last_name")
+            print(first_name,last_name)
+            year_study = teacher_info.year_study
+            return redirect("student_result_query",first_name = first_name,last_name = last_name)
         return render(request,'search_for_student_form.html')
-
+def student_search_result(request,first_name,last_name):
+    if request.user.is_authenticated:  
+        print(first_name)
+        print(last_name)
+        teacher_info = Teacher.objects.get(user = request.user)
+        students = Student.objects.filter(first_name = first_name,last_name = last_name,year_study= teacher_info.year_study)
+        return render(request,"student_result_search.html",{"students":students})
 def add_grade(request):
     if request.user.is_authenticated:
         teacher_info = Teacher.objects.get(user = request.user)
+
         return render(request,"add_grade_list.html",{"teacher_info":teacher_info})
 
     else:

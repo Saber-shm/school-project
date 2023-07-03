@@ -20,5 +20,7 @@ urlpatterns = [
     path("lesson_update_form/<lesson_id>",lesson_update_form,name = "lesson_update_form"),
     path("grades_posted/",grade_posted,name = "grade_posted"),
     path("grade_update_form/<grade_id>",grade_update_form, name = 'grade_update_form'),
-    path("search_for_student_form/<classroom>", search_for_student_form,name = 'search_for_student_form')
+    path("search_for_student_form/<classroom>", search_for_student_form,name = 'search_for_student_form'),
+    path("student_search_result/<first_name>/<last_name>",student_search_result,name = "student_result_query"),
+    
 ]+static(settings.MEDIA_URL,document_root = settings.MEDIA_ROOT)

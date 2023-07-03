@@ -1,0 +1,20 @@
+{%extends 'base_monitor.html'%}
+
+{%block content%}
+
+<h1 align = center>Choose classroom:</h1>
+<hr>
+
+{% for classroom in classrooms %}
+
+<div align = center>
+    <a href="{%url 'add_schedule_form' classroom.id%}">
+        <button>
+            {{classroom}}
+        </button>
+    </a>
+</div>
+<br>
+{%endfor%}
+
+{%endblock content%}
