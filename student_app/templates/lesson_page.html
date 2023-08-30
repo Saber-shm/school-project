@@ -2,18 +2,20 @@
 
 {%block content%}
 
+
 {% for pdf_document in lesson_data %}
         <div align = center>
             <h1 align = center>{{pdf_document.title}}:</h1>
-            <li>
-                level : {{pdf_document.level}}
-            </li>
-            <li>
-                <a href="{% url 'pdf_download' pdf_document.id %}">download PDF  </a>
-            </li>
+            <hr>
+                <h6>level : {{pdf_document.classroom}}</h6>
+                <h6>description:</h6>
+                <p>{{pdf_document.description}}</p>
+                <hr>
+                <a href="{% url 'pdf_download' pdf_document.id %}">download PDF</a>
+            
         </div>
         {% empty %}
-            <li>No PDF files available.</li>
+            No PDF files available.
 
         {% endfor %}
     {%endblock content%}

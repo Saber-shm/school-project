@@ -5,31 +5,25 @@
 <h1 align = center> Choose student:</h1>
 {%for student in students%}
 
+<div class="container d-flex justify-content-center">
 
-<a href="{%url 'add_grade_in' class_grade student.id %}">
-
-    <div class="container d-flex justify-content-center">
+  <ul class="list-group mt-5 text-white">
+    <a href="{%url 'add_grade_in' class_grade student.id %}">
+      <li class="list-group-item d-flex justify-content-between align-content-center">
     
-      <ul class="list-group mt-5 text-white">
-        <li class="list-group-item d-flex justify-content-between align-content-center">
-          
-            <div class="d-flex flex-row">
-                <div class="ml-2">
-                    <h6 class="mb-0">{{student}}</h6>
-                   
-                </div>
-            </div>
-    
-        </li>
-    
-    
-    
-        
-        
-      </ul>
-      
+      <div class="d-flex flex-row">
+        {%if student.image%}
+          <img src="{{student.image.url}}" width="40" />
+        {%endif%}
+          <div class="ml-2">
+              <h6 class="mb-0">{{student.first_name}} {{student.last_name}}</h6>
+             
+          </div>
       </div>
     </a>
+
+  </li>
+</div>
 
 {%endfor%}
 {%endblock content%}

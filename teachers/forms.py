@@ -4,18 +4,19 @@ class add_lesson_forms(forms.ModelForm):
     class Meta:
         model = Lesson
         fields = "__all__"
-        exclude = ['teacher',"classroom","module"]
+        exclude = ['teacher',"classroom","module","year_study"]
         widgets={
             "title":forms.TextInput(attrs={"class":"form-control"}),
             "file":forms.FileInput(attrs={'class': 'form-control'}),
             "year_study":forms.Select(attrs={"class":"form-control"})
 
         }
-    def save(self, commit=True, teacher=None,module = None,classroom = None):
+    def save(self, commit=True, teacher=None,module = None,classroom = None,year_study= None):
         instance = super().save(commit=False)
         instance.teacher = teacher
         instance.module = module
         instance.classroom = classroom
+        instance.year_study = year_study
 
         if commit:
             instance.save()
@@ -71,3 +72,23 @@ class add_devoir_forms(forms.ModelForm):
         if commit:
             instance.save()
         return instance 
+        
+class add_exam_alert_form(forms.ModelForm):
+    class Meta:
+        model = Exam_alert
+        fields = "__all__"
+        exclude = ["posted_by","module","year_study",'classroom']
+        widgets={
+            "date":forms.DateInput({'class': 'form-control','type': 'date', 'placeholder': 'yyyy-mm-dd (DOB)'}),
+            "lessons":forms.Textarea({"class":"form-control"}),
+
+        }
+        def save(self,commit = True,posted_by= None,module = None,year_study = None,classroom = None):
+            instance = super().save(commit = False)
+            instance.posted_by = posted_by
+            instance.module = module
+            instance.year_study = year_study
+            if commit:
+                instance.save()
+            return instance
+    

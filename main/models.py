@@ -86,6 +86,8 @@ class Teacher(models.Model):
     phone_number = models.CharField(max_length=120)
     email = models.EmailField()
     year_study = models.ForeignKey(Year_study,on_delete=models.CASCADE,null = True,blank = True)
+    image = models.ImageField(null = True,blank = True,upload_to="images/")
+
     def __str__(self):
         return str(self.user.username)
 
@@ -96,6 +98,7 @@ class Monitor(models.Model):
     phone_number = models.CharField(max_length=120)
     email = models.EmailField()
     year_study = models.ForeignKey(Year_study,on_delete=models.CASCADE,null = True,blank = True)
+    image = models.ImageField(null = True,blank = True,upload_to="images/")
 
     def __str__(self):
         return self.user.username
@@ -109,6 +112,7 @@ class Lesson(models.Model):
     file = models.FileField(upload_to='pdf_files/')
     module = models.ForeignKey(Module,on_delete=models.SET_NULL,null = True,blank = True)
     teacher = models.ForeignKey(Teacher,on_delete=models.SET_NULL,null = True,blank = True)
+    description = models.TextField(blank = True,null = True)
     year_study = models.ForeignKey(Year_study,on_delete=models.CASCADE,null = True,blank = True)
     def __str__(self):
         return str(self.title)
@@ -184,3 +188,14 @@ class Timetable(models.Model):
 
     def __str__(self):
         return str(self.classroom) + " " + str(self.year_study)
+    
+class Exam_alert(models.Model):
+    date = models.DateField()
+    posted_by = models.ForeignKey(User,on_delete=models.CASCADE)
+    module = models.ForeignKey(Module,on_delete=models.CASCADE)
+    lessons = models.TextField()
+    year_study = models.ForeignKey(Year_study,on_delete=models.CASCADE)
+    classroom = models.ForeignKey(Classroom,on_delete=models.CASCADE,null = True,blank = True)
+    
+    def __str__(self):
+        return str(self.date)+ " " + str(self.module) + " " + str(self.year_study)

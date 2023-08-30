@@ -5,12 +5,10 @@
 <hr>
 {%for i in schedules%}
 
-    <div align = center>
+    <div align = center class="card mb-4 py-3 border-left-secondary">
 
         <a href="{% url 'schedules_posted_days' i.id%}">
-            <button>
                 {{i}}
-            </button>
         </a>
 
     </div>

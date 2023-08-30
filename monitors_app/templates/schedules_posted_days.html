@@ -5,10 +5,10 @@
 <hr>
 {%for i in data%}
 
-    <div align = center>
+    <div align = center >
 
-        <a href="">
-            <button>
+        <a href="{% url 'schedule_posted_form' i.id %}">
+            <button class="btn btn-facebook btn-block">
                 {{i.day}}
             </button>
         </a>

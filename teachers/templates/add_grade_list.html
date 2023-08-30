@@ -6,30 +6,28 @@
 <hr>
 {%for info in teacher_info.classroom.all%}
 
-<a href="{%url 'add_grade_year' info.id %}">
 
-    <div class="container d-flex justify-content-center">
-    
-      <ul class="list-group mt-5 text-white">
+  <div class="container d-flex justify-content-center">
+
+    <ul class="list-group mt-5 text-white">
+      <a href="{%url 'add_grade_classroom' info.id %}">
+
         <li class="list-group-item d-flex justify-content-between align-content-center">
-          
-            <div class="d-flex flex-row">
-                <div class="ml-2">
-                    <h6 class="mb-0">{{info}} </h6>
-                   
-                </div>
-            </div>
-    
-        </li>
-    
-    
-    
-        
-        
-      </ul>
       
-      </div>
+        <div class="d-flex flex-row">
+       
+            <div class="ml-2">
+                <h6 class="mb-0">{{info}}</h6>
+               
+            </div>
+        </div>
+  
+    </li>
     </a>
+    </ul>
+</div>
+
+   
     
 {%endfor%}
 

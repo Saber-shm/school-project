@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<h1 align = center> Exam alerts for classroom {{classroom}}:</h1>
+{% for d in data%}
+<div class="container d-flex justify-content-center">
+
+<ul class="list-group mt-5 text-white">
+    <a href="{%url 'alert_exam_view' d.id%}">
+  <li class="list-group-item d-flex justify-content-between align-content-center">
+    
+      <div class="d-flex flex-row">
+       
+          <div class="ml-2">
+              <h6 class="mb-0">{{d}}</h6>
+             
+          </div>
+      </div>
+    </a>
+
+  </li>
+</ul>
+</div>
+{%endfor%}
+{%endblock content%}

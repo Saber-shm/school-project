@@ -44,11 +44,13 @@
 <br>
 {%endfor%}-->
 <h1 align = center> Student in classroom {{classroom}}:</h1>
-
+<hr>
 <div align = center>
-  <a href="{%url 'search_for_student_form' classroom.id%}">
-    <button>Search for Student</button>
-  </a>
+
+  <a href="{%url 'search_for_student_form' classroom.id%}" class="btn btn-primary btn-icon-split btn-lg">
+    
+    <span class="text">Search for student</span>
+</a>
 </div>
 {%for student in students%}
 <div class="container d-flex justify-content-center">

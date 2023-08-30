@@ -8,6 +8,7 @@ urlpatterns =  [
     path("add_schedule_class/<level>",add_schedule_classroom,name = "add_schedule_classroom"),
     path("add_schedule_form/<classroom>",add_schedule_form,name = "add_schedule_form"),
     path("schedules_posted_classroom/",schedules_posted_classroom,name = "schedules_posted_classroom"),
-    path("schedules_posted_days/<classroom>",schedules_posted_days,name = "schedules_posted_days")
+    path("schedules_posted_days/<classroom>",schedules_posted_days,name = "schedules_posted_days"),
+    path("schedules_posted_form/<form_id>",schedule_posted_form,name = "schedule_posted_form")
 
 ]

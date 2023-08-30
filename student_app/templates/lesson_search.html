@@ -1,1 +1,32 @@
 {%extends 'base.html'%}
+
+{%block content%}
+
+
+{%for r in result%}
+
+
+<div class="container d-flex justify-content-center">
+
+    <ul class="list-group mt-5 text-white">
+        <a href="{% url 'lesson_page' pdf_document.title %}">
+      <li class="list-group-item d-flex justify-content-between align-content-center">
+        
+          <div class="d-flex flex-row">
+           
+              <div class="ml-2">
+                  <h6 class="mb-0">{{ r.title }}</h6>
+                 
+              </div>
+          </div>
+        </a>
+    
+      </li>
+    </ul>
+    </div>
+{% empty %}
+    <li align = center>there is no lessons available</li>
+
+{% endfor %}
+
+{%endfor%}

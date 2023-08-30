@@ -5,12 +5,20 @@
 
 {%for i in semestres%}
 
-<ul align="center">
-  <li>
-    <a href="{% url 'grade_views' year i.id %}"
-      ><button>Semestre {{i}}</button></a
-    >
-  </li>
-</ul>
+          <div class="container d-flex justify-content-center">
+            <a href="{% url 'grade_views' year.id i.id %}">
+        <ul class="list-group mt-5 text-white">
+            <li class="list-group-item d-flex justify-content-between align-content-center">
+          
+            <div class="d-flex flex-row">
+                <div class="ml-2">
+                    <h6 class="mb-0"> Semestre {{i}}</h6>
+                   
+                </div>
+            </div>
+          </a>
+      
+        </li>
+      </div>
 
 {%endfor%} {%endblock content%}

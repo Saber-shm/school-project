@@ -4,8 +4,22 @@
 <h1 align = center>Devoirs:</h1>
 <hr>
 {%for devoir in devoirs%}
-<div align = center> <a href="{%url 'devoir_view' devoir.id%}"><button> {{devoir}}
-</button></a> </div>
+<div align = center> <a href="{%url 'devoir_view' devoir.id%}"> <div class="container d-flex justify-content-center">
+
+    <ul class="list-group mt-5 text-white">
+        <li class="list-group-item d-flex justify-content-between align-content-center">
+      
+        <div class="d-flex flex-row">
+       
+            <div class="ml-2">
+                <h6 class="mb-0">{{devoir}}</h6>
+               
+            </div>
+        </div>
+      </a>
+  
+    </li>
+  </div></div>
 <br>
 {%endfor%}
 

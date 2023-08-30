@@ -1,0 +1,31 @@
+{%extends 'base_teacher.html'%}
+
+{% block content %}
+<h1 align = center> You posted:</h1>
+<hr>
+{% for z in data%}
+
+    
+    <div class="container d-flex justify-content-center">
+
+        <ul class="list-group mt-5 text-white">
+            <a href="{%url 'edit_exam_alert_form' z.id%}">
+
+            <li class="list-group-item d-flex justify-content-between align-content-center">
+          
+            <div class="d-flex flex-row">
+           
+                <div class="ml-2">
+                    <h6 class="mb-0">{{z}}</h6>
+                   
+                </div>
+            </div>
+      
+        </li>
+    </div>
+    
+</a>
+{%endfor%}
+
+
+{%endblock content%}
